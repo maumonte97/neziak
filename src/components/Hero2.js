@@ -41,13 +41,13 @@ function Hero2() {
     <section className="hero2">
       {/* Background image */}
       <div className="hero2-bg">
-        <img src="/images/hero2-retrabajo.jpg" alt="" />
+        <img src="/images/hero2-retrabajo.webp" alt="" />
       </div>
       {/* Blue gradient overlay */}
       <div className="hero2-gradient"></div>
       {/* Dot pattern */}
       <div className="hero2-dots">
-        <img src="/images/hero-dots-pattern.png" alt="" />
+        <img src="/images/hero-dots-pattern.webp" alt="" />
       </div>
 
       {/* Top bar */}

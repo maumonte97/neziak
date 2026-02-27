@@ -3,7 +3,7 @@ import './Industries.css';
 import useScrollReveal from '../hooks/useScrollReveal';
 
 // Imagen de fondo de la sección de industrias
-const imgBackground = "/images/industries-automotriz.jpg";
+const imgBackground = "/images/industries-automotriz.webp";
 
 const industries = [
   { name: 'ALIMENTICIA', active: true },

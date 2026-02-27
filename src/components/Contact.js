@@ -4,7 +4,7 @@ import { openWhatsApp } from '../utils/openWhatsApp';
 import useScrollReveal from '../hooks/useScrollReveal';
 
 // Imagen local descargada desde Figma
-const imgFoto = "/images/contact-team.jpg";
+const imgFoto = "/images/contact-team.webp";
 
 function Contact() {
   const [formData, setFormData] = useState({

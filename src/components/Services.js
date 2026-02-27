@@ -4,9 +4,9 @@ import { openWhatsApp } from '../utils/openWhatsApp';
 import useScrollReveal from '../hooks/useScrollReveal';
 
 // Imágenes locales descargadas desde Figma
-const imgSorteo = "/images/service-sorteo.jpg";
+const imgSorteo = "/images/service-sorteo.webp";
 const imgRetrabajo = "/images/service-retrabajo.jpg";
-const imgTraspaleo = "/images/service-traspaleo.jpg";
+const imgTraspaleo = "/images/service-traspaleo.webp";
 
 function Services() {
   const revealRef = useScrollReveal();

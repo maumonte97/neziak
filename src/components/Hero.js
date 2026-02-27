@@ -13,7 +13,7 @@ function Hero() {
       <div className="hero-bg-gradient"></div>
       {/* Dot pattern overlay */}
       <div className="hero-dots-pattern">
-        <img src="/images/hero-dots-pattern.png" alt="" />
+        <img src="/images/hero-dots-pattern.webp" alt="" />
       </div>
 
       {/* Top bar */}
@@ -88,7 +88,7 @@ function Hero() {
         </div>
 
         <div className="hero-image-panel">
-          <img src="/images/hero-industrial.png" alt="Material industrial" />
+          <img src="/images/hero-industrial.webp" alt="Material industrial" />
         </div>
       </div>
 
