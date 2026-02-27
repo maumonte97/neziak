@@ -1,0 +1,442 @@
+.process {
+  padding: 100px 0;
+  background: var(--color-light-gray);
+}
+
+.process-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 60px;
+}
+
+.process-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.process-title {
+  font-family: var(--font-instrument);
+  font-weight: 700;
+  font-size: 40px;
+  color: var(--color-primary-green);
+}
+
+.process-timeline {
+  position: relative;
+  margin-bottom: 80px;
+}
+
+.timeline-line {
+  position: absolute;
+  top: 44px;
+  left: 10%;
+  right: 10%;
+  height: 5px;
+  background: var(--color-primary-blue);
+  border-radius: 2.5px;
+  z-index: 0;
+}
+
+.process-steps {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  z-index: 1;
+}
+
+.step-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+  max-width: 180px;
+}
+
+.step-circle {
+  width: 88px;
+  height: 88px;
+  background: var(--color-white);
+  border: 3px solid var(--color-primary-blue);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.step-number {
+  font-family: var(--font-inter);
+  font-weight: 700;
+  font-size: 50px;
+  color: var(--color-primary-blue);
+  line-height: 1;
+}
+
+.step-content {
+  padding: 10px;
+}
+
+.step-title {
+  font-family: var(--font-inter);
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--color-black);
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+.step-subtitle {
+  font-size: 14px;
+  color: var(--color-black);
+}
+
+/* Compliance Section */
+.compliance-section {
+  background: var(--color-white);
+  padding: 50px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  margin-top: 60px;
+}
+
+.compliance-content {
+  max-width: 400px;
+}
+
+.compliance-title {
+  font-family: var(--font-instrument);
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--color-black);
+  margin-bottom: 20px;
+}
+
+.compliance-description {
+  font-size: 19px;
+  color: var(--color-dark-gray);
+  line-height: 1.5;
+}
+
+.compliance-badges {
+  display: flex;
+  gap: 15px;
+}
+
+.cert-badge {
+  width: 240px;
+  height: 240px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--color-white);
+}
+
+.cert-badge.cert-green {
+  background: var(--color-primary-green);
+}
+
+.cert-badge.cert-blue {
+  background: var(--color-primary-blue);
+}
+
+.cert-badge.cert-gray {
+  background: var(--color-dark-gray);
+  width: 280px;
+}
+
+.cert-logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  margin-bottom: 14px;
+}
+
+/* STPS/REPSE y SAT son logos horizontales, necesitan más ancho */
+.cert-logo-wide {
+  width: 180px;
+  height: 80px;
+}
+
+.cert-label {
+  font-family: var(--font-inter);
+  font-weight: 800;
+  font-size: 22px;
+  margin-bottom: 8px;
+  position: relative;
+}
+
+.cert-label::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: rgba(255,255,255,0.5);
+}
+
+.cert-value {
+  font-family: var(--font-inter);
+  font-weight: 500;
+  font-size: 22px;
+}
+
+@media (max-width: 1200px) {
+  .process-steps {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+  }
+
+  .step-item {
+    flex: 0 0 30%;
+    max-width: 200px;
+  }
+
+  .timeline-line {
+    display: none;
+  }
+
+  .compliance-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .compliance-badges {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 1024px) {
+  .process {
+    padding: 80px 0;
+  }
+
+  .process-container {
+    padding: 0 40px;
+  }
+
+  .process-header {
+    margin-bottom: 50px;
+  }
+
+  .process-title {
+    font-size: 34px;
+  }
+
+  .cert-badge {
+    width: 180px;
+    height: 180px;
+  }
+
+  .cert-badge.cert-gray {
+    width: 200px;
+  }
+
+  .cert-label,
+  .cert-value {
+    font-size: 18px;
+  }
+
+  .cert-logo {
+    width: 60px;
+    height: 60px;
+  }
+
+  .cert-logo-wide {
+    width: 140px;
+    height: 60px;
+  }
+
+  .compliance-section {
+    padding: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .process {
+    padding: 60px 0;
+  }
+
+  .process-container {
+    padding: 0 20px;
+  }
+
+  .process-title {
+    font-size: 32px;
+  }
+
+  .process-header {
+    margin-bottom: 30px;
+  }
+
+  .process-timeline {
+    margin-bottom: 40px;
+  }
+
+  /* Compact vertical timeline */
+  .process-steps {
+    flex-direction: column;
+    gap: 0;
+    padding-left: 20px;
+    position: relative;
+  }
+
+  .process-steps::before {
+    content: '';
+    position: absolute;
+    left: 36px;
+    top: 18px;
+    bottom: 18px;
+    width: 2px;
+    background: var(--color-primary-blue);
+    opacity: 0.3;
+  }
+
+  .step-item {
+    flex: none;
+    max-width: 100%;
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    gap: 16px;
+    padding: 8px 0;
+  }
+
+  .step-circle {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    border-width: 2px;
+    margin-bottom: 0;
+    z-index: 1;
+  }
+
+  .step-number {
+    font-size: 16px;
+  }
+
+  .step-content {
+    padding: 0;
+  }
+
+  .step-title {
+    font-size: 15px;
+    margin-bottom: 2px;
+  }
+
+  .step-subtitle {
+    font-size: 13px;
+    color: var(--color-dark-gray);
+  }
+
+  .compliance-section {
+    padding: 30px 20px;
+  }
+
+  /* Sin cards — logos grandes y limpios, 2 arriba + 1 abajo */
+  .compliance-badges {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    width: 100%;
+  }
+
+  .cert-badge {
+    width: 100%;
+    height: auto;
+    background: none !important;
+    border-radius: 0;
+    color: var(--color-black);
+    padding: 10px 0;
+  }
+
+  .cert-badge:last-child {
+    grid-column: 1 / -1;
+    justify-self: center;
+  }
+
+  .cert-logo {
+    width: 100px;
+    height: 100px;
+    filter: none;
+    margin-bottom: 10px;
+  }
+
+  .cert-logo-wide {
+    width: 160px;
+    height: 80px;
+  }
+
+  .cert-label {
+    font-size: 14px;
+    color: var(--color-dark-gray);
+  }
+
+  .cert-label::after {
+    display: none;
+  }
+
+  .cert-value {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-black);
+  }
+}
+
+@media (max-width: 480px) {
+  .process {
+    padding: 40px 0;
+  }
+
+  .process-container {
+    padding: 0 16px;
+  }
+
+  .process-title {
+    font-size: 26px;
+  }
+
+  .process-steps {
+    padding-left: 10px;
+  }
+
+  .process-steps::before {
+    left: 26px;
+  }
+
+  .compliance-section {
+    padding: 24px 16px;
+    margin-top: 30px;
+  }
+
+  .compliance-title {
+    font-size: 20px;
+  }
+
+  .compliance-description {
+    font-size: 15px;
+  }
+
+  .cert-logo {
+    width: 80px;
+    height: 80px;
+  }
+
+  .cert-logo-wide {
+    width: 140px;
+    height: 70px;
+  }
+
+  .cert-value {
+    font-size: 16px;
+  }
+}

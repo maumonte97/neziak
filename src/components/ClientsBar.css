@@ -1,0 +1,154 @@
+.clients-bar-wrapper {
+  background: var(--color-light-gray);
+  padding: 0 20px;
+}
+
+.clients-bar {
+  position: relative;
+  z-index: 10;
+  background: var(--color-primary-green);
+  border-radius: 13px;
+  padding: 17px 60px 30px;
+  text-align: center;
+  max-width: 1197px;
+  margin: -55px auto -55px;
+}
+
+.clients-label {
+  font-family: var(--font-instrument);
+  font-weight: 500;
+  font-size: 20px;
+  color: var(--color-white);
+  margin-bottom: 15px;
+}
+
+.clients-logos-wrapper {
+  overflow: hidden;
+  width: 100%;
+}
+
+.clients-logos-track {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  width: max-content;
+  animation: scroll-logos 20s linear infinite;
+}
+
+@keyframes scroll-logos {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.clients-logos-track:hover {
+  animation-play-state: paused;
+}
+
+.client-logo {
+  height: 48px;
+  width: auto;
+  max-width: 200px;
+  flex-shrink: 0;
+  filter: brightness(0) invert(1);
+}
+
+.client-logo-wide {
+  height: 51px;
+  max-width: 300px;
+}
+
+.client-logo-xl {
+  height: 120px;
+  max-width: 300px;
+}
+
+@media (max-width: 1024px) {
+  .clients-bar {
+    margin: -40px 20px -40px;
+    padding: 16px 40px 24px;
+  }
+
+  .clients-logos-track {
+    gap: 50px;
+  }
+
+  .client-logo {
+    height: 36px;
+  }
+
+  .client-logo-wide {
+    height: 40px;
+  }
+
+  .client-logo-xl {
+    height: 90px;
+  }
+}
+
+@media (max-width: 768px) {
+  .clients-bar-wrapper {
+    padding: 20px 20px;
+  }
+
+  .clients-bar {
+    padding: 16px 20px 20px;
+    margin: 0;
+  }
+
+  .clients-logos-track {
+    gap: 40px;
+  }
+
+  .clients-label {
+    font-size: 16px;
+  }
+
+  .client-logo {
+    height: 30px;
+  }
+
+  .client-logo-wide {
+    height: 34px;
+  }
+
+  .client-logo-xl {
+    height: 70px;
+  }
+}
+
+@media (max-width: 480px) {
+  .clients-bar-wrapper {
+    padding: 16px 16px;
+  }
+
+  .clients-bar {
+    padding: 12px 16px 16px;
+    margin: 0;
+    border-radius: 10px;
+  }
+
+  .clients-logos-track {
+    gap: 30px;
+  }
+
+  .clients-label {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  .client-logo {
+    height: 24px;
+  }
+
+  .client-logo-wide {
+    height: 28px;
+  }
+
+  .client-logo-xl {
+    height: 55px;
+  }
+}
