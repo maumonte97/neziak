@@ -16,6 +16,7 @@ function Contact() {
     urgencia: '',
     mensaje: ''
   });
+  const [submitState, setSubmitState] = useState('idle'); // 'idle' | 'sending' | 'success'
   const utmRef = useRef({});
   const revealRef = useScrollReveal();
 
@@ -40,7 +41,35 @@ function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (submitState !== 'idle') return;
     console.log('Form submitted:', { ...formData, utm_data: utmRef.current, page_url: window.location.href });
+
+    setSubmitState('sending');
+
+    setTimeout(() => {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'form_submit',
+        form_name: 'contacto',
+        form_service: formData.servicio,
+        form_urgency: formData.urgencia
+      });
+
+      setSubmitState('success');
+
+      setTimeout(() => {
+        setSubmitState('idle');
+        setFormData({
+          nombre: '',
+          empresa: '',
+          cargo: '',
+          telefono: '',
+          servicio: '',
+          urgencia: '',
+          mensaje: ''
+        });
+      }, 4000);
+    }, 1500);
   };
 
   return (
@@ -202,13 +231,20 @@ function Contact() {
           </div>
 
           <div className="form-submit">
-            <button type="submit" className="btn-submit">
-              Solicita Cotización Inmediata →
-            </button>
-
-            <p className="submit-note">
-              Al enviar este formulario, aceptas que un ingeniero de NEZIAK te contacte prioritariamente.
-            </p>
+            {submitState === 'success' ? (
+              <p className="submit-success" style={{ color: '#22c55e', fontWeight: 600, fontSize: '1.05rem', textAlign: 'center', padding: '1rem 0' }}>
+                ¡Solicitud enviada! Un ingeniero te contactará a la brevedad.
+              </p>
+            ) : (
+              <>
+                <button type="submit" className="btn-submit" disabled={submitState === 'sending'}>
+                  {submitState === 'sending' ? 'Enviando...' : 'Solicita Cotización Inmediata →'}
+                </button>
+                <p className="submit-note">
+                  Al enviar este formulario, aceptas que un ingeniero de NEZIAK te contacte prioritariamente.
+                </p>
+              </>
+            )}
           </div>
         </form>
       </div>

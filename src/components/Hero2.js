@@ -14,6 +14,7 @@ function Hero2() {
     servicio: '',
     mensaje: ''
   });
+  const [submitState, setSubmitState] = useState('idle'); // 'idle' | 'sending' | 'success'
   const utmRef = useRef({});
 
   useEffect(() => {
@@ -34,7 +35,33 @@ function Hero2() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (submitState !== 'idle') return;
     console.log('Hero form submitted:', { ...formData, utm_data: utmRef.current, page_url: window.location.href });
+
+    setSubmitState('sending');
+
+    setTimeout(() => {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'form_submit',
+        form_name: 'hero_cotizacion',
+        form_service: formData.servicio
+      });
+
+      setSubmitState('success');
+
+      setTimeout(() => {
+        setSubmitState('idle');
+        setFormData({
+          nombre: '',
+          empresa: '',
+          cargo: '',
+          telefono: '',
+          servicio: '',
+          mensaje: ''
+        });
+      }, 4000);
+    }, 1500);
   };
 
   return (
@@ -150,12 +177,20 @@ function Hero2() {
               <label>Mensaje</label>
               <textarea name="mensaje" value={formData.mensaje} onChange={handleChange} rows="2" placeholder="Describe brevemente tu necesidad..." />
             </div>
-            <button type="submit" className="hero2-submit">
-              Solicita Cotización Inmediata →
-            </button>
-            <p className="hero2-form-note">
-              Al enviar este formulario, aceptas que un ingeniero de NEZIAK te contacte prioritariamente.
-            </p>
+            {submitState === 'success' ? (
+              <p className="hero2-submit-success" style={{ color: '#22c55e', fontWeight: 600, fontSize: '1.05rem', textAlign: 'center', padding: '1rem 0' }}>
+                ¡Solicitud enviada! Un ingeniero te contactará a la brevedad.
+              </p>
+            ) : (
+              <>
+                <button type="submit" className="hero2-submit" disabled={submitState === 'sending'}>
+                  {submitState === 'sending' ? 'Enviando...' : 'Solicita Cotización Inmediata →'}
+                </button>
+                <p className="hero2-form-note">
+                  Al enviar este formulario, aceptas que un ingeniero de NEZIAK te contacte prioritariamente.
+                </p>
+              </>
+            )}
           </form>
         </div>
       </div>

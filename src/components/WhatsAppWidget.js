@@ -70,6 +70,12 @@ function WhatsAppWidget() {
 
     setStep('loading');
 
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'whatsapp_lead',
+      form_name: 'whatsapp_widget'
+    });
+
     // Construir mensaje con UTMs
     let waMessage = `Hola, soy ${name} de ${empresa}.\n\nCorreo: ${email}\nTel: ${phone}`;
     const utms = utmRef.current;
