@@ -1,8 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Legal.css';
+import useDocumentMeta from '../hooks/useDocumentMeta';
 
 function AvisoPrivacidad() {
+  useDocumentMeta(
+    'Aviso de Privacidad | NEZIAK',
+    'Conoce cómo NEZIAK protege y utiliza tus datos personales conforme a la Ley Federal de Protección de Datos Personales en Posesión de los Particulares.'
+  );
+
   return (
     <div className="legal-page">
       <div className="legal-header">

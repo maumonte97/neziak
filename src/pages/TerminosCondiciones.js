@@ -1,8 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Legal.css';
+import useDocumentMeta from '../hooks/useDocumentMeta';
 
 function TerminosCondiciones() {
+  useDocumentMeta(
+    'Términos y Condiciones | NEZIAK',
+    'Términos y condiciones de uso del sitio web y servicios industriales de NEZIAK. Cotizaciones, contratación y legislación aplicable en Monterrey, Nuevo León.'
+  );
+
   return (
     <div className="legal-page">
       <div className="legal-header">
