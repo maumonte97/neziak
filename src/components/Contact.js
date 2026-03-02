@@ -39,14 +39,28 @@ function Contact() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (submitState !== 'idle') return;
-    console.log('Form submitted:', { ...formData, utm_data: utmRef.current, page_url: window.location.href });
 
     setSubmitState('sending');
 
-    setTimeout(() => {
+    try {
+      const API_URL = process.env.REACT_APP_CONTACT_API || 'https://neziak.com.mx/api/contact.php';
+
+      const res = await fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          source: 'contacto',
+          ...formData,
+          ...utmRef.current,
+          page_url: window.location.href
+        })
+      });
+
+      if (!res.ok) throw new Error('Error al enviar');
+
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({
         event: 'form_submit',
@@ -69,7 +83,11 @@ function Contact() {
           mensaje: ''
         });
       }, 4000);
-    }, 1500);
+    } catch (err) {
+      console.error('Error enviando form:', err);
+      setSubmitState('idle');
+      alert('Hubo un error al enviar tu solicitud. Intenta de nuevo o llámanos al 81 8396 0949.');
+    }
   };
 
   return (
@@ -200,6 +218,7 @@ function Contact() {
                 <option value="sorteo">Sorteo de material</option>
                 <option value="retrabajo">Retrabajo industrial</option>
                 <option value="traspaleo">Traspaleo</option>
+                <option value="kits">Armado de kits promocionales</option>
                 <option value="inspeccion">Inspección</option>
                 <option value="otro">Otro</option>
               </select>

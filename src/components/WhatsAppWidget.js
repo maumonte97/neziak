@@ -64,7 +64,7 @@ function WhatsAppWidget() {
     }, 300);
   };
 
-  const send = (e) => {
+  const send = async (e) => {
     e.preventDefault();
     if (!name.trim() || !phone.trim() || !email.trim() || !empresa.trim()) return;
 
@@ -75,6 +75,27 @@ function WhatsAppWidget() {
       event: 'whatsapp_lead',
       form_name: 'whatsapp_widget'
     });
+
+    // Enviar datos por email via cPanel
+    try {
+      const API_URL = process.env.REACT_APP_CONTACT_API || 'https://neziak.com.mx/api/contact.php';
+      fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          source: 'whatsapp',
+          nombre: name,
+          empresa,
+          email,
+          telefono: phone,
+          mensaje: message,
+          ...utmRef.current,
+          page_url: window.location.href
+        })
+      }).catch(() => {});
+    } catch (err) {
+      // No bloquear el flujo de WhatsApp si falla el email
+    }
 
     // Construir mensaje con UTMs
     let waMessage = `Hola, soy ${name} de ${empresa}.\n\nCorreo: ${email}\nTel: ${phone}`;
