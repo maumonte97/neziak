@@ -7,6 +7,7 @@ import useScrollReveal from '../hooks/useScrollReveal';
 const imgSorteo = "/images/service-sorteo.webp";
 const imgRetrabajo = "/images/service-retrabajo.jpg";
 const imgTraspaleo = "/images/service-traspaleo.webp";
+const imgKits = "/images/service-kits.webp";
 
 function Services() {
   const revealRef = useScrollReveal();
@@ -30,6 +31,11 @@ function Services() {
               <p className="service-description">
                 Separación exhaustiva de piezas conformes y no conformes bajo estándares de calidad.
               </p>
+              <ul className="service-tags">
+                <li>Inspección visual</li>
+                <li>Inspección dimensional</li>
+                <li>CS1 y CS2</li>
+              </ul>
               <a href="#contacto" className="service-cta">
                 <span>Solicitar cotización</span>
                 <span className="arrow">→</span>
@@ -71,6 +77,23 @@ function Services() {
             </div>
             <div className="service-image">
               <img src={imgTraspaleo} alt="Traspaleo" />
+            </div>
+          </div>
+
+          {/* Armado de kits promocionales — row 4: slide from right */}
+          <div className="service-row reveal-slide-right stagger-4">
+            <div className="service-image">
+              <img src={imgKits} alt="Armado de kits promocionales" />
+            </div>
+            <div className="service-card green">
+              <h3 className="service-title">Armado de kits promocionales</h3>
+              <p className="service-description">
+                Ensamble y empaque de kits promocionales con personal capacitado y control de calidad.
+              </p>
+              <a href="#contacto" className="service-cta">
+                <span>Solicitar cotización</span>
+                <span className="arrow">→</span>
+              </a>
             </div>
           </div>
         </div>
