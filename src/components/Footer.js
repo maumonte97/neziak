@@ -13,7 +13,7 @@ function Footer() {
             <div className="footer-contact-row">
               <a href="mailto:ventas@neziak.com.mx" className="footer-contact">ventas@neziak.com.mx</a>
               <span className="footer-separator">|</span>
-              <a href="tel:+528183960949" className="footer-contact">81 8396 0949</a>
+              <a href="tel:+528128848971" className="footer-contact">81 2884 8971</a>
             </div>
           </div>
         </div>

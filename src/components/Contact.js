@@ -86,7 +86,7 @@ function Contact() {
     } catch (err) {
       console.error('Error enviando form:', err);
       setSubmitState('idle');
-      alert('Hubo un error al enviar tu solicitud. Intenta de nuevo o llámanos al 81 8396 0949.');
+      alert('Hubo un error al enviar tu solicitud. Intenta de nuevo o llámanos al 81 2884 8971.');
     }
   };
 
@@ -117,7 +117,7 @@ function Contact() {
                 </div>
                 <div className="method-info">
                   <span className="method-label">Atención inmediata</span>
-                  <a href="tel:+528183960949" className="method-value">81 8396 0949</a>
+                  <a href="tel:+528128848971" className="method-value">81 2884 8971</a>
                 </div>
               </div>
 

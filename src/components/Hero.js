@@ -22,7 +22,7 @@ function Hero() {
           <div className="top-bar-left">
             <div className="top-bar-item">
               <img src="/images/icon-phone.svg" alt="" className="top-bar-icon" />
-              <a href="tel:+528183960949">81 8396 0949</a>
+              <a href="tel:+528128848971">81 2884 8971</a>
             </div>
             <div className="top-bar-item">
               <img src="/images/icon-email.svg" alt="" className="top-bar-icon" />

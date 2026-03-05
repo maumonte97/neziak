@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './WhatsAppWidget.css';
 
-const WA_PHONE = '528183960949';
+const WA_PHONE = '528128848971';
 
 function WhatsAppWidget() {
   const [isOpen, setIsOpen] = useState(false);
