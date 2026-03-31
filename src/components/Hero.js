@@ -67,9 +67,8 @@ function Hero() {
           </div>
 
           <h1 className="hero-title">
-            ¿Tu línea de producción
-            esta en riesgo por material
-            defectuoso?
+            Sorteo, inspección y retrabajo
+            industrial en Nuevo León. 24/7.
           </h1>
 
           <p className="hero-subtitle">
