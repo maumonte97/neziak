@@ -91,7 +91,7 @@ function Contact() {
   };
 
   return (
-    <section className="contact" id="contacto" ref={revealRef}>
+    <section className="contact" ref={revealRef}>
       <div className="contact-blue-section">
         <div className="contact-container">
           <div className="contact-info reveal-fade-up">
@@ -158,7 +158,7 @@ function Contact() {
         </div>
       </div>
 
-      <div className="contact-form-section reveal-fade-up">
+      <div className="contact-form-section reveal-fade-up" id="contacto">
         <form className="contact-form" onSubmit={handleSubmit}>
           <div className="form-row">
             <div className="form-group">
