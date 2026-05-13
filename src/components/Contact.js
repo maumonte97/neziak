@@ -15,8 +15,7 @@ function Contact() {
     email: '',
     telefono: '',
     servicio: '',
-    urgencia: '',
-    mensaje: ''
+    urgencia: ''
   });
   const [emailError, setEmailError] = useState('');
   const [submitState, setSubmitState] = useState('idle'); // 'idle' | 'sending' | 'success'
@@ -90,8 +89,7 @@ function Contact() {
           email: '',
           telefono: '',
           servicio: '',
-          urgencia: '',
-          mensaje: ''
+          urgencia: ''
         });
         setEmailError('');
       }, 4000);
@@ -267,17 +265,6 @@ function Contact() {
                 <option value="no">No, puedo esperar</option>
               </select>
             </div>
-          </div>
-
-          <div className="form-group full-width">
-            <label>Mensaje</label>
-            <textarea
-              name="mensaje"
-              value={formData.mensaje}
-              onChange={handleChange}
-              rows="3"
-              placeholder="Describe brevemente tu necesidad..."
-            />
           </div>
 
           <div className="form-submit">

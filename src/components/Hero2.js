@@ -13,8 +13,7 @@ function Hero2() {
     cargo: '',
     email: '',
     telefono: '',
-    servicio: '',
-    mensaje: ''
+    servicio: ''
   });
   const [emailError, setEmailError] = useState('');
   const [submitState, setSubmitState] = useState('idle'); // 'idle' | 'sending' | 'success'
@@ -82,8 +81,7 @@ function Hero2() {
           cargo: '',
           email: '',
           telefono: '',
-          servicio: '',
-          mensaje: ''
+          servicio: ''
         });
         setEmailError('');
       }, 4000);
@@ -220,10 +218,6 @@ function Hero2() {
                 <option value="inspeccion">Inspección</option>
                 <option value="otro">Otro</option>
               </select>
-            </div>
-            <div className="hero2-form-group hero2-full">
-              <label>Mensaje</label>
-              <textarea name="mensaje" value={formData.mensaje} onChange={handleChange} rows="2" placeholder="Describe brevemente tu necesidad..." />
             </div>
             {submitState === 'success' ? (
               <p className="hero2-submit-success" style={{ color: '#22c55e', fontWeight: 600, fontSize: '1.05rem', textAlign: 'center', padding: '1rem 0' }}>
