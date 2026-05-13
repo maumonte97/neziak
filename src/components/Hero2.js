@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './Hero2.css';
 import { openWhatsApp } from '../utils/openWhatsApp';
+import { validateCorporateEmail } from '../utils/validateEmail';
 
 const neziakLogo = "/images/logo-neziak.png";
 
@@ -10,10 +11,12 @@ function Hero2() {
     nombre: '',
     empresa: '',
     cargo: '',
+    email: '',
     telefono: '',
     servicio: '',
     mensaje: ''
   });
+  const [emailError, setEmailError] = useState('');
   const [submitState, setSubmitState] = useState('idle'); // 'idle' | 'sending' | 'success'
   const utmRef = useRef({});
 
@@ -31,11 +34,18 @@ function Hero2() {
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+    if (e.target.name === 'email' && emailError) setEmailError('');
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (submitState !== 'idle') return;
+
+    const emailErr = validateCorporateEmail(formData.email);
+    if (emailErr) {
+      setEmailError(emailErr);
+      return;
+    }
 
     setSubmitState('sending');
 
@@ -70,10 +80,12 @@ function Hero2() {
           nombre: '',
           empresa: '',
           cargo: '',
+          email: '',
           telefono: '',
           servicio: '',
           mensaje: ''
         });
+        setEmailError('');
       }, 4000);
     } catch (err) {
       console.error('Error enviando form:', err);
@@ -179,6 +191,24 @@ function Hero2() {
                 <label>Teléfono</label>
                 <input type="tel" name="telefono" value={formData.telefono} onChange={handleChange} autoComplete="tel" required />
               </div>
+            </div>
+            <div className="hero2-form-group hero2-full">
+              <label>Correo Corporativo</label>
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                autoComplete="email"
+                placeholder="tu.nombre@empresa.com"
+                required
+                aria-invalid={emailError ? 'true' : 'false'}
+              />
+              {emailError && (
+                <span style={{ color: '#dc2626', fontSize: '0.8rem', marginTop: '0.3rem', display: 'block' }}>
+                  {emailError}
+                </span>
+              )}
             </div>
             <div className="hero2-form-group hero2-full">
               <label>Tipo de Servicio</label>

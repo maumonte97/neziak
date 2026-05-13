@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './WhatsAppWidget.css';
+import { validateCorporateEmail } from '../utils/validateEmail';
 
 const WA_PHONE = '528128848971';
 
@@ -9,6 +10,7 @@ function WhatsAppWidget() {
   const [message, setMessage] = useState('Hola, me interesa solicitar una cotización de servicios industriales.');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [emailError, setEmailError] = useState('');
   const [empresa, setEmpresa] = useState('');
   const [phone, setPhone] = useState('');
   const [bubbleVisible, setBubbleVisible] = useState(false);
@@ -67,6 +69,12 @@ function WhatsAppWidget() {
   const send = async (e) => {
     e.preventDefault();
     if (!name.trim() || !phone.trim() || !email.trim() || !empresa.trim()) return;
+
+    const emailErr = validateCorporateEmail(email);
+    if (emailErr) {
+      setEmailError(emailErr);
+      return;
+    }
 
     setStep('loading');
 
@@ -209,11 +217,20 @@ function WhatsAppWidget() {
                       type="email"
                       name="email"
                       autoComplete="email"
-                      placeholder="Correo electrónico *"
+                      placeholder="Correo corporativo *"
                       value={email}
-                      onChange={(e) => setEmail(e.target.value)}
+                      onChange={(e) => {
+                        setEmail(e.target.value);
+                        if (emailError) setEmailError('');
+                      }}
                       required
+                      aria-invalid={emailError ? 'true' : 'false'}
                     />
+                    {emailError && (
+                      <span style={{ color: '#dc2626', fontSize: '0.8rem', display: 'block', marginTop: '-0.25rem', marginBottom: '0.5rem' }}>
+                        {emailError}
+                      </span>
+                    )}
                     <input
                       type="tel"
                       name="phone"
